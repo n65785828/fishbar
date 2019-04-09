@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="images/favicon.png"/>
+    <title>Snappy</title>
+
+    <link href="css/scrolling-nav.css" rel="stylesheet" media="all">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/responsive.css" rel="stylesheet">
+    <script src="js/jquery.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/custom.js" type="text/javascript"></script>
+    <style>
+        #upload_ok,#upload_wait{
+            position: fixed;
+            left: 50%;
+            top: 55%;
+            display: none;
+        }
+        #th_tr th{
+            text-align: center;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+<body id="myPage">
+<img src="" th:src="@{/images/icons/ok.png}" id="upload_ok">
+<img src="" th:src="@{/images/icons/waiting.png}" id="upload_wait">
+<div class="section-page-wrap">
+    <div class="share">
+        <div class="icon first facebook"><i class="fa fa-facebook"></i></div>
+        <div class="icon twitter"><i class="fa fa-twitter"></i></div>
+        <div class="icon google-plus"><i class="fa fa-google-plus"></i></div>
+        <div class="icon pinterest last"><i class="fa fa-pinterest-p"></i></div>
+        <div class="label">Share</div>
+    </div>
+    <header class="top-nav-bar">
+        <div id="toggle">
+            <div class="one"></div>
+            <div class="two"></div>
+            <div class="three"></div>
+        </div>
+
+        <div id="menu">
+            <ul class="menu-view list-unstyled">
+                <li><a href="home"><img src="images/icons/home.png" onmouseover="this.src = 'images/icons/home-hover.png'" onmouseout="this.src = 'images/icons/home.png'"></a></li>
+                <li><a href="about"><img src="images/icons/about.png" onmouseover="this.src = 'images/icons/about-hover.png'" onmouseout="this.src = 'images/icons/about.png'"></a></li>
+                <li><a href="portfolio"><img src="images/icons/portfolio.png" onmouseover="this.src = 'images/icons/portfolio-hover.png'" onmouseout="this.src = 'images/icons/portfolio.png'"></a></li>
+                <li class="active"><a><img src="images/icons/contact-hover.png"></a></li>
+            </ul>
+        </div>
+
+    </header>
+    <div class="banner-full-image">
+        <div class="banner-title">
+            <h1>perfect photography</h1>
+            <a class="btn btn-primary" href="about">read more</a>
+        </div>
+    </div>
+
+    <!-------------About----------->
+    <section id="contact" class="section-padding">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-10 col-sm-7 col-xs-12 width-set-80">
+                    <h1 class="maintitle"><span>管理你的个人小仓库</span></h1>
+                    <div class="wrapcontact">
+                        <div class="done" style="display: none">
+                            <div class="alert-box success ">Your message has been sent. Thank you! <a class="close" href="javascript:void(0)">x</a></div>
+                        </div>
+                        <div>
+                            <table class="table">
+                                <thead>
+                                <tr id="th_tr">
+                                    <th>上传日期</th>
+                                    <th>文件名称</th>
+                                    <th>文件描述</th>
+                                    <th colspan="2">操作</th></tr>
+                                </thead>
+                                <tbody>
+                                <tr class="active" th:each="file:${files}">
+                                    <td th:text="${#dates.format(file.fdate,'yyyy-MM-dd')}">2018-10-11</td>
+                                    <td th:text="${file.fname}">sadfsdaf.jpg</td>
+                                    <td th:text="${file.fdesc}">019-03-07 22:09:25.165 DEBUG 11848 --- [p-nio-80-exec-7] t.s.m.F.FindFilesByUid</td>
+                                    <td><a class="btn btn-sm btn-info" th:href="@{${file.getFid()}}">查看详情</a></td>
+                                    <td><a class="btn-sm btn btn-danger" th:href="@{${file.getFid()}}">删除</a></td></tr>
+                                <!--<tr class="success">
+                                    <td>产品2</td>
+                                    <td>10/11/2013</td>
+                                    <td>发货中</td></tr>
+                                <tr class="warning">
+                                    <td>产品3</td>
+                                    <td>20/10/2013</td>
+                                    <td>待确认</td></tr>
+                                <tr class="danger">
+                                    <td>产品4</td>
+                                    <td>20/10/2013</td>
+                                    <td>已退货</td></tr>-->
+                                </tbody>
+                            </table>
+                            <ul class="pagination">
+                                <li><a href="#">&laquo;</a></li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!---footer--->
+    <footer>
+        <div class="container text-center">
+            <div class="copyright">
+                &copy; 2017 All right reserved. Designed by <a href="#" target="_blank">ThemeVault.</a> -  More Templates <a href="#" target="_blank" title="fishing">fishing</a> - Collect from <a href="#" title="fishing" target="_blank">fishing</a>
+            </div>
+        </div>
+    </footer>
+    <div id="back-to-top" style="display: none">
+        <i class="fa fa-angle-double-up" aria-hidden="true"></i> Top
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<!--[if lt IE 7 ]> <html lang="en" class="ie6">    <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7">    <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8">    <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="ie9">    <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+<html class="no-js" lang="" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Home</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- Google Fonts
+		============================================ -->				
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600&amp;subset=latin,latin-ext" type="text/css" media="all" />
+		<link href='https://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+					
+        <!-- Favicon
+		============================================ -->
+		<link rel="shortcut icon" type="image/x-icon" th:href="@{/asserts/img/favicon.ico}" href="#">
+
+ 		<!-- CSS  -->
+		
+		<!-- Bootstrap CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/asserts/css/ext/bootstrap.min.css}">
+        
+		<!-- owl.carousel CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/owl.carousel.css" th:href="@{/asserts/css/owl.carousel.css}">
+        
+		<!-- owl.theme CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/owl.theme.css" th:href="@{/asserts/css/owl.carousel.css}">
+           	
+		<!-- owl.transitions CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/owl.transitions.css" th:href="@{/asserts/css/owl.transitions.css}" >
+        
+		<!-- font-awesome.min CSS
+		============================================ -->      
+        <link rel="stylesheet" href="css/font-awesome.min.css" th:href="@{/asserts/css/font-awesome.min.css}">
+		
+		<!-- meanmenu CSS
+		============================================ -->		
+        <link rel="stylesheet" href="css/meanmenu.min.css" media="all" th:href="@{/asserts/css/meanmenu.min.css}" />
+        
+ 		<!-- animate CSS
+		============================================ -->         
+        <link rel="stylesheet" href="css/animate.css" th:href="@{/asserts/css/animate.css}">
+		
+		<!-- nivo slider CSS
+		============================================ -->
+		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" th:href="@{/asserts/css/nivo-slider.css}" />
+		<link rel="stylesheet" href="css/preview.css" type="text/css" media="screen" th:href="@{/asserts/css/preview.css}" />
+        
+ 		<!-- normalize CSS
+		============================================ -->        
+        <link rel="stylesheet" href="css/normalize.css" th:href="@{/asserts/css/normalize.css}">
+   
+        <!-- main CSS
+		============================================ -->          
+        <link rel="stylesheet" href="css/main.css" th:href="@{/asserts/css/main.css}">
+        
+        <!-- style CSS
+		============================================ -->          
+        <link rel="stylesheet" href="style.css" th:href="@{/asserts/css/style.css}">
+        
+        <!-- responsive CSS
+		============================================ -->          
+        <link rel="stylesheet" href="css/responsive.css" th:href="@{/asserts/css/responsive.css}">
+        
+        <script src="js/vendor/modernizr-2.8.3.min.js" th:src="@{/asserts/js/vendor/modernizr-2.8.3.min.js}"></script>
+    </head>
+    <!--<body class="home">-->
+	<body>
+        <!--[if lt IE 8] -->
+            <!--<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+        <![endif]-->
+        
+
+		<!-- Promotion Area	Start -->	
+		<section class="promotion-area">
+			<div class="container">
+				<div class="row">
+					<div class="promotion">
+						<div class="col-lg-4 col-md-4 col-sm-6" th:each="file:${files}">
+							<div class="single-promotion">
+								<a href="#" th:href="@{${file.getFpath()}}"><img src="img/banner/banner1.jpg" alt="" th:src="${file.ispicture}?${file.fpath}:${autofileName}"/> </a>
+								<div class="singleh" >
+									<h3 th:text="${file.fname}">男孩.jpg</h3>
+									<p th:text="${#dates.format(file.fdate,'yyyy-MM-dd')} + ${file.fdesc}">这是2019年12月10日上传的boy.jpg文件</p>
+									<span><a th:href="@{${file.getFpath()}}">查看详情</a></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section> 
+
+ 		<!-- jquery-1.11.3.min js
+		============================================ -->         
+        <script src="js/vendor/jquery-1.11.3.min.js" th:src="@{/asserts/js/vendor/jquery-1.11.3.min.js}"></script>
+		
+        <!-- price-slider js
+		============================================ -->         
+        <script src="js/price-slider.js" th:src="@{/asserts/js/price-slider.js}" ></script>
+        
+ 		<!-- bootstrap js
+		============================================ -->         
+        <script src="js/bootstrap.min.js" th:src="@{/asserts/js/ext/bootstrap.min.js}"></script>
+		
+		<!-- jquery-meanmenu js -->
+		<script src="js/jquery.meanmenu.js" th:src="@{/asserts/js/jquery.meanmenu.js}"></script>
+        
+   		<!-- owl.carousel.min js
+		============================================ -->       
+        <script src="js/owl.carousel.min.js" th:src="@{/asserts/js/owl.carousel.min.js}"></script>
+		
+		<!-- Nivo slider js
+		============================================ --> 		
+		<script src="js/jquery.nivo.slider.js" type="text/javascript" th:src="@{/asserts/js/jquery.nivo.slider.js}"></script>
+		
+		<!-- elevateZoom js 
+		============================================ -->
+		<script src="js/jquery.elevateZoom-3.0.8.min.js" th:src="@{/asserts/js/jquery.elevateZoom-3.0.8.min.js}"></script>
+		
+		<!-- jquery.bxslider.min.js
+		============================================ -->       
+        <script src="js/jquery.bxslider.min.js" th:src="@{/asserts/js/jquery.bxslider.min.js}"></script>
+        
+   		<!-- wow js
+		============================================ -->       
+        <script src="js/wow.js" th:src="@{/asserts/js/wow.js}"></script>
+        
+   		<!-- jquery.scrollUp js
+		============================================ -->         
+        <script src="js/jquery.scrollUp.min.js" th:src="@{/asserts/js/jquery.scrollUp.min.js}"></script>
+        
+   		<!-- plugins js
+		============================================ -->         
+        <script src="js/plugins.js" th:src="@{/asserts/js/plugins.js}"></script>
+        
+   		<!-- main js
+		============================================ -->           
+        <script src="js/main.js" th:src="@{/asserts/js/main.js}"></script>
+    </body>
+</html>
+
